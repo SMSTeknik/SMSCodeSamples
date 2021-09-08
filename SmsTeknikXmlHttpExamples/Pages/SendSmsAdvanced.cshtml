@@ -1,0 +1,97 @@
+﻿@page
+@model SmsTeknikXmlHttpExamples.Pages.SendSmsAdvancedModel
+@{
+    ViewData["Title"] = "Send SMS Advanced";
+}
+
+
+<div>
+    <h1>Send SMS Advanced</h1>
+    <p>This example has more properties and also configurates delivery reports.</p>
+
+    <p>Available properties for this method:</p>
+    <ul>
+        <li><i>id</i>, <i>user</i> and <i>pass</i>: Credentials for your account</li>
+        <li><i>smssender</i>: The sender as alphanumeric (eg. Test) or phone number starting with country prefix (eg. +4790000000)</li>
+        <li><i>recipients</i>: Collection/list of receivers of the SMS (eg. +4790000000)</li>
+        <li><i>multisms</i>: Value indicating if allowed to send more that one message part (length > 160)</li>
+        <li><i>maxmultisms</i>: Number of allowed message parts</li>
+        <li><i>text</i>: the content of the message</li>
+        <li><i>ttl</i>: Time To Live. Sets the time that the SMS message is valid in the GSM network. Accepts a value of 0 or between 30 - 840 minutes. 0 means that the TTL is set to the operators default.</li>
+        <li><i>operationtype:</i> 0=Text, 1=Wap-push, 2=vCard, 3=vCalender, 4=Binary, 5=Unicode</li>
+        <li><i>customid</i>: Lets you add your own identification (tag) for the submitted messages. This might help you keep track of your messages when you receive the delivery report</li>
+        <li><i>send_date</i>: Date for scheduled message. Must be on format yyyy-MM-dd. Time zone CET/CEST.</li>
+        <li><i>send_time</i>: Time for scheduled message. Must bon on format HH:mm:ss. Time zone CET/CEST.</li>
+        <li><i>deliverystatustype</i>: Where to send the delivery report. 0 = Off, 1 = E-mail, 2 = http Get, 3 = http Post, 4 = HTTP XML</li>
+        <li><i>deliverystatusaddress</i>: URL or E-mail address (based on setting in <i>deliverystatustype</i>)</li>
+    </ul>
+
+    <p>Some less important properties has been included from the above list. Se official documentation (or code behind) for å complete list.</p>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label for="txtSender">Sender</label>
+            <input type="text" class="form-control" placeholder="Sender, ex Test or phone number" name="txtSender" value="" />
+            <small class="form-text text-muted">Alphanumeric name or phone number (remember country prefix, eg. +4790000000.</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtRecipient1">Recipient</label>
+            <input type="text" class="form-control" placeholder="Phone number" name="txtRecipient1" value="" />
+            <small class="form-text text-muted">Phone number starting with country prefix, eg. +4790000000</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtRecipient2">Additional recipient</label>
+            <input type="text" class="form-control" placeholder="Phone number" name="txtRecipient2" value="" />
+            <small class="form-text text-muted">This is only to demonstrate that you can add multiple recipients in the same request.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtText">Text</label>
+            <textarea class="form-control" name="txtText" rows="3"></textarea>
+            <small class="form-text text-muted">Remember to activate <i>multisms</i> and <i>maxmultisms</i> if more that 160 chars.</small>
+        </div>
+
+
+        <div class="form-group">
+            <label for="txtDeliveryReportUrl">Delivery Report URL</label>
+            <input type="text" class="form-control" placeholder="URL" name="txtDeliveryReportUrl" value="" />
+            <small class="form-text text-muted">This is for <i>deliveryoptiontype</i> = 2, meaning the delivery reports will be sent to the given URL as HTTP GET (query string). Please note thaat more delivery options are available.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtCustomId">Custom ID</label>
+            <input type="text" class="form-control" placeholder="Your custom ID" name="txtCustomId" value="" />
+            <small class="form-text text-muted">Lets you add your own identification (tag) for the submitted message. This might help you keep track of your messages when you receive the delivery report.</small>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" name="cbMultiSMS" value="on">
+            <label class="form-check-label" for="cbMultiSMS">Enable multi SMS</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+        
+        @if (!string.IsNullOrEmpty(Model.RawResponse))
+        {
+            <div class="alert alert-primary">
+                <h5 class="alert-heading">Raw response from server:</h5>
+                @Model.RawResponse
+            </div>
+        }
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+
+    </form>
+
+</div>

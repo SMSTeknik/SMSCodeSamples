@@ -1,0 +1,53 @@
+﻿@page
+@model SmsTeknikTutorial.Pages.CodeExamplesModel
+@{
+    ViewData["Title"] = "Kodeeksempler";
+}
+
+<div>
+
+    <h1>Kodeeksempler</h1>
+
+    <p>Under er forskjellige kodeeksempler som kan lastes ned og kjøres i ditt lokale utviklermiljø.</p>
+
+    <div class="card mt-2">
+        <div class="card-header">
+            .Net Core
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Eksempler for Web Service</h5>
+            <p class="card-text">Eksempler for Web Service som demonstrerer utsendelse av SMS (enkel og avansert), sjekke credit saldo, slette melding i kø, hente leveransestatus og mye annet. Eksemplene er skrevet i C# for .Net Core for Razor Page.</p>
+            <a href="/zip/SmsTeknikWebServiceExamples.zip" class="btn btn-primary">Last ned for .Net Core</a>
+        </div>
+    </div>
+
+
+    <div class="card mt-2">
+        <div class="card-header">
+            .Net Core, Postman
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Eksempler for XML over HTTP</h5>
+            <p class="card-text">Her kan du laste ned et fungerende kodeeksempel på hvordan dette grensesnittet kan implementeres. Eksemplene viser hvordan XML kan serialisers fra objekter, og hvordan man kan behandle responsen for å avgjøre om utsendelsen var vellykket. Eksemplet viser også hvordan man konfigurerer <a asp-page="Guide-DeliveryReports">leveranserapporer</a>. Eksemplene er skrevet i C# for .Net Core for Razor Page. </p>
+            <p><a href="/zip/SmsTeknikXmlHttpExamples.zip" class="btn btn-primary">Last ned for .Net Core</a></p>
+            <p>Det er også laget en Postman collection som demonstrerer utsendelse av SMS med ulike autentiseringsmetoder (Basic auth og URL parameter).</p>
+            <p><a href="/zip/SmsTeknik XML.postman_collection.zip" class="btn btn-primary">Last ned Postman collection</a></p>
+
+        </div>
+    </div>
+
+    <div class="card mt-2">
+        <div class="card-header">
+            .Net Core, Postman
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Eksempler for HTTP Get Wrapper</h5>
+            <p class="card-text">Her kan du laste ned fungerende kodeeksempler på hvordan dette grensesnittet kan implementeres. Eksemplene viser hvordan man sender ut en SMS med ulike parametere, og hvordan man behandler responsen for å avgjøre om meldingen var vellykket. Eksemplene er skrevet i C# for .Net Core for Razor Page. </p>
+            <p><a href="/zip/SmsTeknikHttpWrapperExamples.zip" class="btn btn-primary">Last ned for .Net Core</a></p>
+            <p>Det er også laget en Postman collection som demonstrerer utsendelse av SMS for ulike autentiseringsmetoder.</p>
+            <p><a href="/zip/SmsTeknik HTTP wrapper.postman_collection.zip" class="btn btn-primary">Last ned Postman collection</a></p>
+
+        </div>
+    </div>
+
+</div>

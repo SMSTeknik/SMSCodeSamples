@@ -1,0 +1,42 @@
+﻿@page
+@model SmsTeknikWebServiceExamples.Pages.DeleteQueuedMessageModel
+@{
+    ViewData["Title"] = "Delete Queued Message";
+}
+
+
+<div>
+    <h1>Delete Queued Message</h1>
+    
+    <p>Enter SMS ID for the queued message you want to delete.</p>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label for="txtSmsid1">Smsid</label>
+            <input type="text" class="form-control" placeholder="smsid" name="txtSmsid" value="" />
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+        
+        @if (!string.IsNullOrEmpty(Model.RawResponse))
+        {
+            <div class="alert alert-primary">
+                <h5 class="alert-heading">Raw response from server:</h5>
+                @Model.RawResponse
+            </div>
+        }
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+
+    </form>
+    
+</div>

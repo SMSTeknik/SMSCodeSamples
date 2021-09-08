@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Examples";
+}
+
+<div>
+    <h1>Web Service Examples</h1>
+    <ul>
+        <li><a asp-page="/SendSmsSimple">Send Simple message (SendSMSSimple)</a></li>
+        <li><a asp-page="/SendSmsMulti">Send advanced message (SendSMSMulti)</a></li>
+        <li><a asp-page="/RequestDeliveryStatus">Request delivery status</a></li>
+        <li><a asp-page="/CheckCredits">Check Account Credits</a></li>
+        <li><a asp-page="/DeleteQueuedMessage">Delete queued message</a></li>
+    </ul>
+</div>

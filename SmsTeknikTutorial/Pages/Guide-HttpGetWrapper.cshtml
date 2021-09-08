@@ -1,0 +1,88 @@
+﻿@page
+@model SmsTeknikTutorial.Pages.Guide_HttpGetWrapperModel
+@{
+    ViewData["Title"] = "HTTP GET Wrapper";
+}
+
+<div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="/Index">Veiledning</a></li>
+            <li class="breadcrumb-item active" aria-current="page">HTTP Get Wrapper</li>
+        </ol>
+    </nav>
+
+    <h1>HTTP Get Wrapper</h1>
+
+
+    <p>Dette prinsippet baserer seg på at man kaller en URL med parametere (query string).</p>
+    
+    <p>Fordelen med denne metoden er at den er veldig enkel å implementere, men ulempen er at den har enkelte bekgrensninger, og kan f.eks bare sende til en mottaker av gangen og støtter heller ikke push leveranserapport.</p>
+    
+    <p>URL til endepunkt: <a href="https://api.smsteknik.se/send/" target="_blank">https://api.smsteknik.se/send/</a></p>
+    
+    <div class="alert alert-warning">
+        <p><strong>Merk!</strong> Denne metoden tillater brukernavn og passord som parametere direkte i URL, men det er en metode som ikke anbefales ettersom det kan etterlate spor i serverlogger og lignende. Det er derfor langt sikrere å benytte Basic Authentication i header, hvor brukernavn og passord blir beskyttet av ende-til-ende kryptering (SSL).</p>
+        <p>Token for Basic Authentication ble utlevert av SMS Teknik ved etablering av konto, men kan ellers genereres ved å base64 encode <i>brukernavn:passord</i>.</p>
+    </div>
+
+    <div class="alert alert-secondary">
+        <h5 class="alert-heading">Eksempel</h5>
+        <p>Følgende kall vil sende meldingen <strong>&quot;Dette er en test&quot;</strong> til telefonnummer <strong>(+47) 90000000</strong> fra avsenderen <strong>&quot;Test&quot;</strong>:</p>
+        <hr />
+        <p><samp>https://api.smsteknik.se/send/?user=[brukernavn]&pass=[passord]&id=[id]&nr=+4790000000&sender=test&msg=Dette%20er%20en%20test</samp></p>
+        <hr />
+        <p>Brukernavn (<i>user</i>), passord (<i>pass</i>) og firma (<i>id</i>) vil bli utlevert av SmsTeknik ved etablering av konto.</p>
+    </div>
+
+    <p>Verdiene må være URL-kodet. Dette gjelder spesielt meldingsinnholdet, brukernavn og avsender.</p>
+    <p>Ut over nevnte parametere kan man også angi flash (om det er en blinkende melding), multisms (støtte for lange meldinger – flere meldingsdeler), maxmultisms (antall meldingsdeler), operationtype (type SMS, eks vCard, SMS, etc) og senddate/sendtime (tidspunkt for utsendelse).</p>
+
+    <h2>Returverdi</h2>
+    <p>I responsen fra kallet mottar man informasjon om status på forespørselen.</p>
+    <p>Dersom forespørselen feilet vil man motta en feilkode. Feilkoden er en tekststreng som begynner på 0: etterfulgt av feilmeldingen (eks «0:Access denied»).</p>
+    <p>Merk at feilene man får i respons er i hovedsak prevalideringer, som feil på konto eller ugyldig telefonnummer. Vellykket utsendelse er derfor ingen garanti for at meldingen vil nå mottaker, men det er en forutsetning for at den skal bli prosessert videre. Benytt leveranserapporter for å få status på meldingen på veg mot mottaker.</p>
+    <p>Dersom utsendelsen er vellykket vil man få en heltallverdi i retur. Denne verdien kalles SMSID, og vil entydig identifisere SMS-en i systemet. Denne verdien brukes blant annet i leveranserapporter, og må derfor lagres i databasen for fremtidig referanse.</p>
+    <div class="alert alert-info">
+        <strong>Tips!</strong> For å avgjøre om meldingen er prosessert eller feilet kan man sjekke om meldingen som returneres starter med <strong>&quot;0:&quot;</strong>.
+    </div>
+
+    <div class="alert alert-secondary">
+        <h5 class="alert-heading">Eksempel</h5>
+        <p>Under er et komplett eksempel for utsendelse av SMS med .Net Core. Eksemplet viser også hvordan man utføre feilhåndtering.</p>
+        <hr />
+        <code>
+<pre class="pre-scrollable" style='color:#000000;'>
+<span style='color:#800000; font-weight:bold; '>using</span> <span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>var</span> client <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> System<span style='color:#808030; '>.</span>Net<span style='color:#808030; '>.</span>WebClient<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#696969; '>// It is recommended to use Basic Auth, but it is also possible to add credentials to URL.</span>
+    client<span style='color:#808030; '>.</span>Headers<span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>Authorization</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Basic [your token]</span><span style='color:#800000; '>"</span><span style='color:#800080; '>;</span>
+
+    <span style='color:#800000; font-weight:bold; '>var</span> result <span style='color:#808030; '>=</span> client<span style='color:#808030; '>.</span>DownloadString<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>https://api.smsteknik.se/send/?id=[id]&amp;nr=+4790000000&amp;sender=test&amp;msg=Dette%20er%20en%20test</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+    <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>result<span style='color:#808030; '>.</span>StartsWith<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>0:</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+    <span style='color:#800080; '>{</span>
+        <span style='color:#696969; '>// Failed.</span>
+        <span style='color:#800000; font-weight:bold; '>string</span> errorMessage <span style='color:#808030; '>=</span> result<span style='color:#808030; '>.</span>Substring<span style='color:#808030; '>(</span><span style='color:#008c00; '>2</span><span style='color:#808030; '>,</span> result<span style='color:#808030; '>.</span>Length <span style='color:#808030; '>-</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        Console<span style='color:#808030; '>.</span>WriteLine<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>SMS failed with reason: </span><span style='color:#800000; '>"</span> <span style='color:#808030; '>+</span> errorMessage<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+    <span style='color:#800000; font-weight:bold; '>else</span>
+    <span style='color:#800080; '>{</span>
+        <span style='color:#696969; '>// Success</span>
+        <span style='color:#800000; font-weight:bold; '>long</span> smsid <span style='color:#808030; '>=</span> Convert<span style='color:#808030; '>.</span>ToInt64<span style='color:#808030; '>(</span>result<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        Console<span style='color:#808030; '>.</span>WriteLine<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>SMS successfully sent. SMS ID: </span><span style='color:#800000; '>"</span> <span style='color:#808030; '>+</span> smsid<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+<span style='color:#800080; '>}</span>
+</pre>
+            <!--Created using ToHtml.com on 2021-08-08 18:12:37 UTC -->
+        </code>
+    </div>
+
+    <h2>Eksempler</h2>
+    <p>Under <a asp-page="/CodeExamples">Kodeeksempler</a> kan du laste ned fungerende kodeeksempler på hvordan dette grensesnittet kan implementeres. Eksemplene viser hvordan man sender ut en SMS med ulike parametere, og hvordan man behandler responsen for å avgjøre om meldingen var vellykket.</p>
+    <p>Under <a asp-page="/CodeExamples">Kodeeksempler</a> er det også laget en Postman collection som demonstrerer utsendelse av SMS med ulike autentiseringsmetoder. </p>
+    
+    <p><a asp-page="/CodeExamples" class="btn btn-primary">Gå til kodeeksempler</a></p>
+
+</div>

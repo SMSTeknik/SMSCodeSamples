@@ -1,0 +1,67 @@
+﻿@page
+@model SmsTeknikWebServiceExamples.Pages.SendSmsSimpleModel
+@{
+    ViewData["Title"] = "Send Simple Message";
+}
+
+<div>
+    <h1>Send Simple Message (SendSMSSingle)</h1>
+    <p>Use this method to send a simple SMS to a single receiver. Se code behind for demonstration of available properties.</p>
+    <p>Available properties for this method:</p>
+    <ul>
+        <li><i>id</i>, <i>user</i> and <i>pass</i>: credentials for your account</li>
+        <li><i>smssender</i>: the sender as alphanumeric (eg. Test) or phone number starting with country prefix (eg. +4790000000)</li>
+        <li><i>recipient</i>: the receiver of the SMS (eg. +4790000000)</li>
+        <li><i>multisms</i>: value indicating if allowed to send more that one message part (length > 160)</li>
+        <li><i>maxmultisms</i>: number of allowed message parts</li>
+        <li><i>text</i>: the message to be sent</li>
+    </ul>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label for="txtSender">Sender</label>
+            <input type="text" class="form-control" placeholder="Sender, ex Test or phone number" name="txtSender" value="" />
+            <small class="form-text text-muted">Alphanumeric name or phone number (remember country prefix, eg. +4790000000.</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtRecipient">Recipient</label>
+            <input type="text" class="form-control" placeholder="Phone number" name="txtRecipient" value="" />
+            <small class="form-text text-muted">Phone number starting with country prefix, eg. +4790000000</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtText">Text</label>
+            <textarea class="form-control" name="txtText" rows="3"></textarea>
+            <small class="form-text text-muted">Remember to activate <i>multisms</i> and <i>maxmultisms</i> if more that 160 chars.</small>
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" name="cbMultiSMS" value="on">
+            <label class="form-check-label" for="cbMultiSMS">Enable multi SMS</label>
+        </div>
+            
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+        
+        @if (!string.IsNullOrEmpty(Model.RawResponse))
+        {
+            <div class="alert alert-primary">
+                <h5 class="alert-heading">Raw response from server:</h5>
+                @Model.RawResponse
+            </div>
+        }
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+
+    </form>
+
+</div>

@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Examples";
+}
+<div>
+    <h1>XML over HTTP Examples</h1>
+    <ul>
+        <li><a asp-page="/SendSms">Send SMS simple - with XML serialized from object</a></li>
+        <li><a asp-page="/SendSmsFromString">Send SMS simple - with XML generated as string</a></li>
+        <li><a asp-page="/SendSmsAdvanced">Send SMS advanced (with a lot of properties and configuration of delivery reports)</a></li>
+        <li><a asp-page="/RequestDeliveryStatus">Request delivery status</a></li>
+        <li><a asp-page="/CheckCredits">Check Account Credits</a></li>
+        <li><a asp-page="/DeleteQueuedMessage">Delete queued message</a></li>
+    </ul>
+</div>

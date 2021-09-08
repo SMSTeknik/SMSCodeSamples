@@ -1,0 +1,47 @@
+﻿@page
+@model SmsTeknikWebServiceExamples.Pages.RequestDeliveryStatusModel
+@{
+    ViewData["Title"] = "Request Delivery Status";
+}
+
+<div>
+
+    <h1>Request Delivery Status</h1>
+
+    <p>Enter SMS ID in text field below. We have added two SMS ID text fields to demonstrate that you can add multiple SMS ID's to the request.</p>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label for="txtSmsid1">Smsid # 1</label>
+            <input type="text" class="form-control" placeholder="smsid" name="txtSmsid1" value="" />
+        </div>
+        
+        <div class="form-group">
+            <label for="txtSmsid2">Smsid # 2</label>
+            <input type="text" class="form-control" placeholder="smsid" name="txtSmsid2" value="" />
+        </div>
+            
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+        
+        @if (!string.IsNullOrEmpty(Model.RawResponse))
+        {
+            <div class="alert alert-primary">
+                <h5 class="alert-heading">Raw response from server:</h5>
+                @Model.RawResponse
+            </div>
+        }
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+
+    </form>
+    
+</div>

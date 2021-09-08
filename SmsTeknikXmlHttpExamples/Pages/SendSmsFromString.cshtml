@@ -1,0 +1,63 @@
+﻿@page
+@model SmsTeknikXmlHttpExamples.Pages.SendSmsFromStringModel
+@{
+    ViewData["Title"] = "Send Message";
+}
+
+
+
+<div>
+    <h1>Send SMS simple - with XML generated as string</h1>
+    <p>Use this method to send a SMS. The request in configured in an object that is serialized and posted to endpoint. The result is traversed and determined if success.</p>
+
+    <p>See code behind for more properties.</p>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label for="txtSender">Sender</label>
+            <input type="text" class="form-control" placeholder="Sender, ex Test or phone number" name="txtSender" value="" />
+            <small class="form-text text-muted">Alphanumeric name or phone number (remember country prefix, eg. +4790000000.</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtRecipient1">Recipient</label>
+            <input type="text" class="form-control" placeholder="Phone number" name="txtRecipient1" value="" />
+            <small class="form-text text-muted">Phone number starting with country prefix, eg. +4790000000</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtRecipient2">Additional recipient</label>
+            <input type="text" class="form-control" placeholder="Phone number" name="txtRecipient2" value="" />
+            <small class="form-text text-muted">This is only to demonstrate that you can add multiple recipients in the same request.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtText">Text</label>
+            <textarea class="form-control" name="txtText" rows="3"></textarea>
+            <small class="form-text text-muted">Remember to activate <i>multisms</i> and <i>maxmultisms</i> if more that 160 chars.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+        
+        @if (!string.IsNullOrEmpty(Model.RawResponse))
+        {
+            <div class="alert alert-primary">
+                <h5 class="alert-heading">Raw response from server:</h5>
+                @Model.RawResponse
+            </div>
+        }
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+
+    </form>
+
+</div>
