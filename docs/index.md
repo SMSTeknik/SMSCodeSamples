@@ -32,13 +32,25 @@ Klassisk SOAP/XML Web Service for utsendelse av SMS. Inneholder metode for både
 
 Web Service kan benyttes som klassisk web service (med proxy), eller ved å utføre HTTP POST mot et endepunkt.
 
+[Les mer](Guide-WS.html)
+
 ## XML over HTTP
 
 Dette prinsippet baserer seg på at man genererer et XML objekt som man poster (HTTP POST) til et endepunkt (URL). XML
 objektet inneholder alle parameterne for å sende SMS, som f.eks. mottakere, avsendere, etc. Dette er en enkel teknikk
 som alle plattformer kan benytte.
 
+[Les mer](Guide-XmlHttp.html)
+
 ## HTTP GET wrapper (parametere i URL)
+
+Dette prinsippet baserer seg på at man kaller en URL med parametere (query string) med instrukser for SMS som skal
+sendes.
+
+Denne metoden er svært enkel å implementere, men har enkelte begrensninger som at den støtter ikke leveranserapporter
+eller flere mottakere.
+
+[Les mer](Guide-HttpGetWrapper.html)
 
 ## Andre grensesnitt
 
@@ -49,7 +61,7 @@ veiledningen, men du kan lese mer om den i offisiell dokumentasjon og på Wikipe
 - Universal Computer Protocol (UCP) - Wikipedia
 - Computer Interface to Message Distribution (CIMD) - Wikipedia
 
-See [comparison.html] for sammenligning av de ulike grensesnittene.
+See [sammenligning](comparison.html) for sammenligning av de ulike grensesnittene.
 
 # Leveranserapporter
 
@@ -74,11 +86,8 @@ Dersom man har sendt instrukser om at en melding skal sendes frem i tid, men der
 endepunkt med meldingens ID (som man mottok ved sending) for å kansellere utsendelsen. Sjekk kodeeksempel for Web
 Service eller for XML over HTTP for mer informasjon om hvordan dette fungerer.
 
-
 # Offisiell dokumentasjon
 
-
-Offisiell dokumentasjon
-
 Logg inn på medlemsområdet for å laste ned offisiell dokumentasjon:
-https://www.smsteknik.se/member/login/
+
+[Offisiell dokumentasjon](https://www.smsteknik.se/member/login/)

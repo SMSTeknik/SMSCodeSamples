@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Service - SmsTeknikTutorial</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand" href="/">SMS Teknik</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/">Veiledning</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/CodeExamples">Kodeeksempler</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/Documentation">Dokumentasjon</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <main role="main" class="pb-3">
+
+
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Veiledning</a></li>
+          <li class="breadcrumb-item active" aria-current="page">.Net Web Service (SOAP/XML)</li>
+        </ol>
+      </nav>
+
+      <h1>.Net Web Service (SOAP/XML)</h1>
+
+
+      <p>Web servicen baserer seg på SOAP (Simple Object Access Protocol) som er en XML-basert standard utformet av W3C. Objektene og metodene er beskrevet i WSDL (Web Service Description Language).</p>
+      <p>Web Service kan benyttes som klassisk web service, eller ved å utføre HTTP POST mot et endepunkt. Fordelen med førstnevnte er at IDE (eks Visual Studio) genererer proxy (klassene og metodene) basert på WSDL, men på sistnevnte må man selv definere objektene og sende dem med HTTP POST mot et endepunkt. Sistnevnte har også veldig store likhetstrekk med grensesnittet <a href="/Guide-XmlHttp">XML over HTTP</a>, og bør heller vurderes dersom man ikke ønsker å benytte en SOAP/XML Web Service.</p>
+
+      <div class="alert alert-info">
+        <h5 class="alert-heading">Tips! Generere proxy</h5>
+        <p></p>Flere IDE har fjernet støtte for å generere proxy fra WSDL. Dette gjelder blant annet Visual Studio for Mac og Visual Studio Code.</p>
+        <p>NB: For Visual Studio Code for Windows kan man installere WCF (Windows Communication Foundation Client Libraries) for å generere proxy.</p>
+        <p>Web Service kodeeksemplene i denne veilederen inneholder implementasjoner av WSDL som kan benyttes for blant annet .Net Framework og .Net Core.  Du kan derfor bruke denne implementasjonen i stedet for å generere din egen.</p>
+
+      </div>
+
+      <h5>URL til endepunkt</h5>
+
+      <dl class="row">
+        <dt class="col-sm-3">Web Service</dt>
+        <dd class="col-sm-9">https://api.smsteknik.se/send/ws/v1.1/</dd>
+
+        <dt class="col-sm-3">HTTP POST</dt>
+        <dd class="col-sm-9">https://api.smsteknik.se/send/wsxml/</dd>
+      </dl>
+
+      <h2>Web Service</h2>
+
+      <p>Web Service har to metoder:</p>
+      <ul>
+        <li>SendSMSSingle</li>
+        <li>SendSMSMulti</li>
+      </ul>
+
+      <p>Som navnene indikerer er <i>SendSMSSingle</i> i hovedsak ment for å sende melding til én mottaker, mens <i>SendSMSMulti</i> er beregnet for å sende til flere mottakere samtidig. En annen forskjell er at <i>SendSMSSingle</i> støtter veldig få parametere, og man må benytte <i>SendSMSMulti</i> dersom man ønsker push leveranserapporter, tidsstyring, etc.</p>
+
+      <h5>Sammenligning</h5>
+
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th scope="col">Egenskap</th>
+          <th scope="col">SendSMSSingle</th>
+          <th scope="col">SendSMSMulti</th>
+          <th scope="col">HTTP POST</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Credentials</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Lange SMS</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Angi avsender</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Flere mottakere</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Type melding (vCard, etc)</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Blinkende melding</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Styrt utløpsdato (TTL)</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Planlagt utsendelse</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Komprimert tekst</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Push leveranserapport</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Reply modul</td>
+          <td>&nbsp;</td>
+          <td>&#10003;</td>
+          <td>&#10003;</td>
+        </tr>
+        <tr>
+          <td>Maks antall mottakere <sup>(1)</sup></td>
+          <td>1</td>
+          <td>2.000</td>
+          <td>500</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p><small><strong>(1)</strong> Maksimum antall mottakere for <i>SendSmsMulti</i> og <i>HTTP POST</i> er basert på anbefaling i dokumentasjonen, men ikke nødvendigvis en sperre.</small></p>
+
+      <div class="alert alert-info">
+        <strong>TIPS!</strong> I mange tilfeller skal samme SMS sendes til flere mottakere. Det vil da være svært ressursbesparende å legge alle mottakerne av meldingen inn som vist i eksemplet ovenfor, i stedet for å utføre separate kall per SMS som skal sendes. Anbefalt antall mottakere på web service er inntil 2000.
+      </div>
+
+
+
+      <div class="alert alert-secondary">
+        <h5 class="alert-heading">Eksempel</h5>
+        <p>Eksempel på enkel utsendelse av SMS med <i>SendSMSSingle</i>:</p>
+        <hr />
+
+
+        <code><pre style='color:#000000;'>
+<span style='color:#696969; '>// Initialize the service</span>
+<span style='color:#800000; font-weight:bold; '>var</span> service <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> se<span style='color:#808030; '>.</span>smsteknik<span style='color:#808030; '>.</span>SendSMSSoapClient<span style='color:#808030; '>(</span>se<span style='color:#808030; '>.</span>smsteknik<span style='color:#808030; '>.</span>SendSMSSoapClient<span style='color:#808030; '>.</span>EndpointConfiguration<span style='color:#808030; '>.</span>SendSMSSoap12<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>// Call the method</span>
+<span style='color:#800000; font-weight:bold; '>var</span> result <span style='color:#808030; '>=</span> await service<span style='color:#808030; '>.</span>SendSMSSingleAsync<span style='color:#808030; '>(</span>id<span style='color:#808030; '>,</span> user<span style='color:#808030; '>,</span> pass<span style='color:#808030; '>,</span> isMultiSms<span style='color:#808030; '>,</span> <span style='color:#008c00; '>6</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>The quick brown fox</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Test</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>+4790000000</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>result<span style='color:#808030; '>.</span>StartsWith<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>0:</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#696969; '>// Error</span>
+    <span style='color:#800000; font-weight:bold; '>var</span> errorMessage <span style='color:#808030; '>=</span> $<span style='color:#800000; '>"</span><span style='color:#0000e6; '>The server returned error: {result.Substring(2)}</span><span style='color:#800000; '>"</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+<span style='color:#800000; font-weight:bold; '>else</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#696969; '>// Success!</span>
+
+    <span style='color:#696969; '>// If success the returning value is a smsid.</span>
+    <span style='color:#800000; font-weight:bold; '>long</span> smsid <span style='color:#808030; '>=</span> Convert<span style='color:#808030; '>.</span>ToInt64<span style='color:#808030; '>(</span>result<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#800080; '>}</span>
+</pre>
+          <!--Created using ToHtml.com on 2021-08-10 08:51:53 UTC --></code>
+
+      </div>
+
+      <h2>Returverdi</h2>
+      <p>Når man utfører et metodekall på Web Servicen for å sende en SMS vil man i retur få en status på forespørselen. Formatet på verdiene som returneres er forskjellig fra om man benytter <i>SendSMSSingle</i> eller <i>SendSMSMulti</i>.</p>
+      <p>Når man benytter <i>SendSMSSingle</i> (som kun tillater en mottaker) vil man kun få tilbake én verdi for den ene utsendelsen, men for <i>SendSMSMulti</i> (som tillater flere mottakere) vil man få tilbake en XML struktur som gir status for utsendelsen til hver av mottakerne.</p>
+      <p>Dersom forespørselen feilet vil man motta en feilkode. Feilkoden er en tekststreng som begynner på 0: etterfulgt av feilmeldingen (eks «0:Access denied»).</p>
+      <p>Merk at feilene man får i respons er i hovedsak prevalideringer, som feil på konto eller ugyldig telefonnummer. Vellykket utsendelse er derfor ingen garanti for at meldingen vil nå mottaker, men det er en forutsetning for at den skal bli prosessert videre. Benytt leveranserapporter for å få status på meldingen på veg mot mottaker.</p>
+      <p>Dersom utsendelsen er vellykket vil man få en heltallverdi i retur. Denne verdien kalles SMSID, og vil entydig identifisere SMS-en i systemet. Denne verdien brukes blant annet i leveranserapporter, og må derfor lagres i databasen for fremtidig referanse.</p>
+      <p>Merk! For enkelte typer feil, som gjelder hele utsendelsen, vil også <i>SendSMSMulti</i> kun returnere en feilkode (og ingen XML struktur). Et slikt eksempel er «0:Access denied». Man må derfor alltid sjekke om responsen begynner på «0:» for å unngå at man parser dette som et XML objekt.</p>
+
+      <div class="alert alert-secondary">
+        <p>Eksempel på respons fra <i>SendSmsSingle()</i> dersom vellykket:</p>
+        <hr />
+        <samp>
+          1950940234
+        </samp>
+      </div>
+      <div class="alert alert-secondary">
+        <p>Eksempel på respons fra <i>SendSmsSingle()</i> dersom feilet:</p>
+        <hr />
+        <samp>
+          0:Invalid phonenumber - #+47123#
+        </samp>
+      </div>
+
+      <div class="alert alert-secondary">
+        <p>Eksempel på respons fra <i>SendSMSMulti()</i> når den ene meldingen er vellykket mens den andre har ugyldig telefonnummer:</p>
+        <hr />
+        <pre>
+<span style='color:#004a43; '>&lt;?</span><span style='color:#800000; font-weight:bold; '>xml</span><span style='color:#004a43; '> </span><span style='color:#074726; '>version</span><span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#7d0045; '>1.0</span><span style='color:#800000; '>"</span><span style='color:#004a43; '> </span><span style='color:#074726; '>encoding</span><span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>UTF-8</span><span style='color:#800000; '>"</span><span style='color:#004a43; '> </span><span style='color:#004a43; '>?></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>response</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>datetime</span><span style='color:#a65700; '>></span>2021-08-08 15:30:09<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>datetime</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>count</span><span style='color:#a65700; '>></span>0<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>count</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>smsleft</span><span style='color:#a65700; '>></span>40557<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>smsleft</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>sms</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>smsid</span><span style='color:#a65700; '>></span>1950940234<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>smsid</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>smsid</span><span style='color:#a65700; '>></span>0:Invalid Dest Addr<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>smsid</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>sms</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>response</span><span style='color:#a65700; '>></span>
+        </pre>
+      </div>
+
+      <p>Merk at responsen til hver av mottakerne blir returnert fra serveren i samme rekkefølge som gitt i forespørselen.</p>
+
+      <h2>Kodeeksempler</h2>
+      <p>Under <a href="/CodeExamples">Kodeeksempler</a> kan du laste ned fungerende kodeeksempler på hvordan dette grensesnittet kan implementeres. Eksemplene viser hvordan man sender ut en SMS med både <i>SendSMSSingle</i> og <i>SendSMSMulti</i>, og hvordan man behandler responsen for å avgjøre om meldingen var vellykket. Eksemplet viser også hvordan man konfigurerer <a href="/Guide-DeliveryReports">leveranserapporer</a>.</p>
+      <p><a class="btn btn-primary" href="/CodeExamples">Gå til kodeeksempler</a></p>
+
+    </div>
+
+  </main>
+</div>
+
+<footer class="border-top footer text-muted">
+  <div class="container">
+    &copy; 2021 - SMS Teknik AB
+  </div>
+</footer>
+
+
+</body>
+</html>

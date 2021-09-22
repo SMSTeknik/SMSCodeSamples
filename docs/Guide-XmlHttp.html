@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML over Http - SmsTeknikTutorial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="/">SMS Teknik</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/">Veiledning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/CodeExamples">Kodeeksempler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/Documentation">Dokumentasjon</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+
+
+        <div>
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Veiledning</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">XML over HTTP</li>
+                </ol>
+            </nav>
+
+            <h1>XML over HTTP</h1>
+
+            <p>Dette prinsippet baserer seg på at man genererer et XML objekt som man poster (HTTP POST) til et endepunkt. XML objektet inneholder alle parameterne for å sende SMS, som f.eks. mottakere, avsendere, etc. Dette er en enkel teknikk som alle plattformer kan benytte.</p>
+            <p>En enkel implementasjon vil innebære følgende:</p>
+            <ol>
+                <li>Opprett et XML objekt med nødvendige parametere for den aktuelle SMS. XML objektet kan enten genereres som ren tekst, eller ved å serialisere et objekt til XML. Sistnevnte metode er mest robust, og er omhandlet i kodeeksemplet.</li>
+                <li>Post objektet til et endepunkt. Dette gjøres enkelt som et vanlig HTTP Post kall. Brukernavn og passord legges i URL.</li>
+                <li>Motta respons fra kallet, som inneholder status på forsendelsen.</li>
+            </ol>
+
+            <h2>Format på XML objektet</h2>
+
+            <p>Eksempel på XML objekt for å sende meldingen <strong>&quot;The quick brown fox&quot;</strong> til telefonnummer <strong>(+47) 90000000</strong> fra avsenderen <strong>&quot;Test&quot;</strong>:</p>
+
+            <div class="alert alert-secondary">
+<pre class="pre-scrollable" style='color:#000000;'><code><span style='color:#004a43; '>&lt;?</span><span style='color:#800000; font-weight:bold; '>xml</span><span style='color:#004a43; '> </span><span style='color:#074726; '>version</span><span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#7d0045; '>1.0</span><span style='color:#800000; '>"</span><span style='color:#004a43; '> </span><span style='color:#074726; '>encoding</span><span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>utf-8</span><span style='color:#800000; '>"</span><span style='color:#004a43; '>?></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>sms-teknik</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>udmessage</span><span style='color:#a65700; '>></span><span style='color:#004a43; '>&lt;![CDATA[</span>The quick brown fox<span style='color:#004a43; '>]]&gt;</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>udmessage</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>smssender</span><span style='color:#a65700; '>></span>Test<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>smssender</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>items</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>+4790000000<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>items</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>sms-teknik</span><span style='color:#a65700; '>></span>
+</code></pre>
+                <!--Created using ToHtml.com on 2021-08-09 06:37:08 UTC -->
+            </div>
+
+            <p>Eksemplet ovenfor inneholder minimum parametere for å kunne sende SMS. Det finnes i tillegg over 15 andre parametere for å styre tidspunkt for utsendelse, leveranserapporter, type SMS, etc. Se offisiell dokumentasjon for komplett parameterliste.</p>
+            <p>For å sende samme SMS til flere mottakere:</p>
+
+
+            <div class="alert alert-secondary">
+<pre class="pre-scrollable" style='color:#000000;'><code><span style='color:#004a43; '>&lt;?</span><span style='color:#800000; font-weight:bold; '>xml</span><span style='color:#004a43; '> </span><span style='color:#074726; '>version</span><span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#7d0045; '>1.0</span><span style='color:#800000; '>"</span><span style='color:#004a43; '> </span><span style='color:#074726; '>encoding</span><span style='color:#808030; '>=</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>utf-8</span><span style='color:#800000; '>"</span><span style='color:#004a43; '>?></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>sms-teknik</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>udmessage</span><span style='color:#a65700; '>></span><span style='color:#004a43; '>&lt;![CDATA[</span>The quick brown fox<span style='color:#004a43; '>]]&gt;</span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>udmessage</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>smssender</span><span style='color:#a65700; '>></span>Test<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>smssender</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>items</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>+4790000000<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>+4790000001<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>+4790000002<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>nr</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>recipient</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>items</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>sms-teknik</span><span style='color:#a65700; '>></span>
+</code></pre>
+                <!--Created using ToHtml.com on 2021-08-09 06:41:02 UTC -->
+            </div>
+
+
+            <div class="alert alert-info"><strong>TIPS!</strong> I mange tilfeller skal samme SMS sendes til flere mottakere. Det vil da være svært ressursbesparende å legge alle mottakerne av meldingen inn som vist i eksemplet ovenfor, i stedet for å utføre separate kall per SMS som skal sendes. </div>
+
+            <p>Link til valideringsskjema (XSD): <a href="https://www.smsteknik.se/dl/api/SMS_SUBMIT_REQUEST_v3.xsd" target="_blank">https://www.smsteknik.se/dl/api/SMS_SUBMIT_REQUEST_v3.xsd</a></p>
+
+            <h2>Utføre kall mot endepunkt</h2>
+
+            <p>Endepunkt finnes på følgende plassering: <a href="https://api.smsteknik.se/send/xml/" target="_blank">https://api.smsteknik.se/send/xml/</a></p>
+
+            <div class="alert alert-warning">
+                <p><strong>Merk!</strong> Denne metoden tillater brukernavn og passord som parametere direkte i URL, men det er en metode som ikke anbefales ettersom det kan etterlate spor i serverlogger og lignende. Det er derfor langt sikrere å benytte Basic Authentication i header, hvor brukernavn og passord blir beskyttet av ende-til-ende kryptering (SSL).</p>
+                <p>Token for Basic Authentication ble utlevert av SMS Teknik ved etablering av konto, men kan ellers genereres ved å base64 encode <i>brukernavn:passord</i>.</p>
+            </div>
+
+            <p>XML objektet serialiseres til tekst og sendes som HTTP Post mot endepunkt.</p>
+
+
+            <div class="alert alert-secondary">
+                <h5 class="alert-heading">Eksempel</h5>
+                <p>Under vises et eksempel på hvordan man kan poste et XML objekt til endepunktet.</p>
+                <p>I eksemplet lengre ned (under <i>Returverdi</i>) vises hvordan man kan behandle responsen. Se forøvrig <a href="/CodeExamples">Kodeeksempel</a> for full implementasjon.</p>
+                <hr />
+
+
+                <code>
+<pre style='color:#000000;'><span style='color:#800000; font-weight:bold; '>using</span> <span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>var</span> client <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> System<span style='color:#808030; '>.</span>Net<span style='color:#808030; '>.</span>WebClient<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#696969; '>// It is recommended to use Basic Auth, but it is also possible to add credentials to URL.</span>
+    client<span style='color:#808030; '>.</span>Headers<span style='color:#808030; '>[</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>Authorization</span><span style='color:#800000; '>"</span><span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Basic [your token]</span><span style='color:#800000; '>"</span><span style='color:#800080; '>;</span>
+
+    <span style='color:#696969; '>// Xml data. Generate from string og serialize from object.</span>
+    <span style='color:#800000; font-weight:bold; '>var</span> xmlData <span style='color:#808030; '>=</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>&lt;...></span><span style='color:#800000; '>"</span>
+
+    <span style='color:#800000; font-weight:bold; '>var</span> returnData <span style='color:#808030; '>=</span> client<span style='color:#808030; '>.</span>UploadData<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>new</span> Uri<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>https://api.smsteknik.se/send/xml/</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>,</span> xmlData<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+    <span style='color:#696969; '>// Convert response from byte array to string.</span>
+    <span style='color:#800000; font-weight:bold; '>var</span> response <span style='color:#808030; '>=</span> System<span style='color:#808030; '>.</span>Text<span style='color:#808030; '>.</span>Encoding<span style='color:#808030; '>.</span>Default<span style='color:#808030; '>.</span>GetString<span style='color:#808030; '>(</span>returnData<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+    <span style='color:#696969; '>// Se example below on how to handle the sesponse.</span>
+
+<span style='color:#800080; '>}</span>
+</pre>
+                    <!--Created using ToHtml.com on 2021-08-11 08:23:18 UTC -->
+                </code>
+
+            </div>
+
+            <h2>Returverdi</h2>
+            <p>I responsen fra kallet mottar man informasjon om status på forespørselen.</p>
+            <p>Dersom forespørselen feilet vil man motta en feilkode. Feilkoden er en tekststreng som begynner på 0: etterfulgt av feilmeldingen (eks «0:Access denied»).</p>
+            <p>Merk at feilene man får i respons er i hovedsak prevalideringer, som feil på konto eller ugyldig telefonnummer. Vellykket utsendelse er derfor ingen garanti for at meldingen vil nå mottaker, men det er en forutsetning for at den skal bli prosessert videre. Benytt leveranserapporter for å få status på meldingen på veg mot mottaker.</p>
+            <p>Dersom utsendelsen er vellykket vil man få en heltallverdi i retur. Denne verdien kalles SMSID, og vil entydig identifisere SMS-en i systemet. Denne verdien brukes blant annet i leveranserapporter, og må derfor lagres i databasen for fremtidig referanse.</p>
+            <p>Dersom man sender til flere mottakere vil man få en status per mottaker. Statusene vil da være semikolonseparert (;), og gjengitt i samme rekkefølge som i forespørselen.</p>
+
+
+            <div class="alert alert-secondary">
+
+                <p>Eksempel på respons hvor den ene mottaker var vellykket mens den andre feilet:</p>
+                <hr />
+                <samp>
+                    1950940234;0:Invalid phonenumber - #+47123#
+                </samp>
+            </div>
+
+            <div class="alert alert-secondary">
+                <h5 class="alert-heading">Eksempel</h5>
+                <p>For å sjekke status for hver av utsendelsene kan man gjøre som følgende:</p>
+                <hr />
+
+
+                <code><pre class="pre-scrollable" style='color:#000000;'><span style='color:#800000; font-weight:bold; '>string</span> response <span style='color:#808030; '>=</span> <span style='color:#800080; '>;</span> <span style='color:#696969; '>// Get response from http post..</span>
+
+<span style='color:#800000; font-weight:bold; '>string</span><span style='color:#808030; '>[</span><span style='color:#808030; '>]</span> arrResult <span style='color:#808030; '>=</span> response<span style='color:#808030; '>.</span>Split<span style='color:#808030; '>(</span><span style='color:#0000e6; '>';'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#800000; font-weight:bold; '>foreach</span> <span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>string</span> result <span style='color:#800000; font-weight:bold; '>in</span> arrResult<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>result<span style='color:#808030; '>.</span>StartsWith<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>0:</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+    <span style='color:#800080; '>{</span>
+        <span style='color:#696969; '>// Failed.</span>
+        <span style='color:#800000; font-weight:bold; '>string</span> errorMessage <span style='color:#808030; '>=</span> result<span style='color:#808030; '>.</span>Substring<span style='color:#808030; '>(</span><span style='color:#008c00; '>2</span><span style='color:#808030; '>,</span> result<span style='color:#808030; '>.</span>Length <span style='color:#808030; '>-</span> <span style='color:#008c00; '>2</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        Console<span style='color:#808030; '>.</span>WriteLine<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>SMS failed with reason: </span><span style='color:#800000; '>"</span> <span style='color:#808030; '>+</span> errorMessage<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+    <span style='color:#800000; font-weight:bold; '>else</span>
+    <span style='color:#800080; '>{</span>
+        <span style='color:#696969; '>// Success</span>
+        <span style='color:#800000; font-weight:bold; '>long</span> smsid <span style='color:#808030; '>=</span> Convert<span style='color:#808030; '>.</span>ToInt64<span style='color:#808030; '>(</span>result<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        Console<span style='color:#808030; '>.</span>WriteLine<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>SMS successfully sent. SMS ID: </span><span style='color:#800000; '>"</span> <span style='color:#808030; '>+</span> smsid<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+<span style='color:#800080; '>}</span>
+</pre></code>
+                <!--Created using ToHtml.com on 2021-08-09 07:22:08 UTC -->
+            </div>
+
+            <h2>Kodeeksempler</h2>
+
+            <p>Under <a href="/CodeExamples">Kodeeksempler</a> kan du laste ned et fungerende forslag på hvordan dette grensesnittet kan implementeres. Eksemplene viser hvordan XML kan serialisers fra objekter, og hvordan man kan behandle responsen for å avgjøre om utsendelsen var vellykket. Eksemplet viser også hvordan man konfigurerer <a href="/Guide-DeliveryReports">leveranserapporer</a>.</p>
+            <p>Under <a href="/CodeExamples">Kodeeksempler</a> er det også laget en Postman collection som demonstrerer utsendelse av SMS med ulike autentiseringsmetoder. </p>
+
+            <p><a class="btn btn-primary" href="/CodeExamples">Gå til kodeeksempler</a></p>
+
+        </div>
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - SMS Teknik AB
+    </div>
+</footer>
+
+</body>
+</html>
