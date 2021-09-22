@@ -7,30 +7,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-      <a class="navbar-brand" href="/">SMS Teknik</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-        <ul class="navbar-nav flex-grow-1">
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/">Veiledning</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/CodeExamples">Kodeeksempler</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="/Documentation">Dokumentasjon</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
 <div class="container">
   <main role="main" class="pb-3">
 
@@ -47,11 +23,11 @@
 
 
       <p>Web servicen baserer seg på SOAP (Simple Object Access Protocol) som er en XML-basert standard utformet av W3C. Objektene og metodene er beskrevet i WSDL (Web Service Description Language).</p>
-      <p>Web Service kan benyttes som klassisk web service, eller ved å utføre HTTP POST mot et endepunkt. Fordelen med førstnevnte er at IDE (eks Visual Studio) genererer proxy (klassene og metodene) basert på WSDL, men på sistnevnte må man selv definere objektene og sende dem med HTTP POST mot et endepunkt. Sistnevnte har også veldig store likhetstrekk med grensesnittet <a href="/Guide-XmlHttp">XML over HTTP</a>, og bør heller vurderes dersom man ikke ønsker å benytte en SOAP/XML Web Service.</p>
+      <p>Web Service kan benyttes som klassisk web service, eller ved å utføre HTTP POST mot et endepunkt. Fordelen med førstnevnte er at IDE (eks Visual Studio) genererer proxy (klassene og metodene) basert på WSDL, men på sistnevnte må man selv definere objektene og sende dem med HTTP POST mot et endepunkt. Sistnevnte har også veldig store likhetstrekk med grensesnittet <a href="Guide-XmlHttp.html">XML over HTTP</a>, og bør heller vurderes dersom man ikke ønsker å benytte en SOAP/XML Web Service.</p>
 
       <div class="alert alert-info">
         <h5 class="alert-heading">Tips! Generere proxy</h5>
-        <p></p>Flere IDE har fjernet støtte for å generere proxy fra WSDL. Dette gjelder blant annet Visual Studio for Mac og Visual Studio Code.</p>
+        <p>Flere IDE har fjernet støtte for å generere proxy fra WSDL. Dette gjelder blant annet Visual Studio for Mac og Visual Studio Code.</p>
         <p>NB: For Visual Studio Code for Windows kan man installere WCF (Windows Communication Foundation Client Libraries) for å generere proxy.</p>
         <p>Web Service kodeeksemplene i denne veilederen inneholder implementasjoner av WSDL som kan benyttes for blant annet .Net Framework og .Net Core.  Du kan derfor bruke denne implementasjonen i stedet for å generere din egen.</p>
 
@@ -246,8 +222,11 @@
       <p>Merk at responsen til hver av mottakerne blir returnert fra serveren i samme rekkefølge som gitt i forespørselen.</p>
 
       <h2>Kodeeksempler</h2>
-      <p>Under <a href="/CodeExamples">Kodeeksempler</a> kan du laste ned fungerende kodeeksempler på hvordan dette grensesnittet kan implementeres. Eksemplene viser hvordan man sender ut en SMS med både <i>SendSMSSingle</i> og <i>SendSMSMulti</i>, og hvordan man behandler responsen for å avgjøre om meldingen var vellykket. Eksemplet viser også hvordan man konfigurerer <a href="/Guide-DeliveryReports">leveranserapporer</a>.</p>
-      <p><a class="btn btn-primary" href="/CodeExamples">Gå til kodeeksempler</a></p>
+      <p>Under <a href="CodeExamples.html">Kodeeksempler</a> kan du laste ned fungerende kodeeksempler på hvordan dette grensesnittet
+        kan implementeres. Eksemplene viser hvordan man sender ut en SMS med både <i>SendSMSSingle</i> og <i>SendSMSMulti</i>,
+        og hvordan man behandler responsen for å avgjøre om meldingen var vellykket.
+        Eksemplet viser også hvordan man konfigurerer <a href="Guide-DeliveryReports">leveranserapporer</a>.</p>
+      <p><a class="btn btn-primary" href="CodeExamples.html">Gå til kodeeksempler</a></p>
 
     </div>
 
