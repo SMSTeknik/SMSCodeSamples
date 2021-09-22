@@ -8,7 +8,7 @@ for mer utfyllende informasjon.
 SMS Teknik tilbyr flere metoder for utsendelse av SMS basert på ulike teknologier og metodikker. I denne veiledningen
 går vi innom de tre vanligste metodene. I tillegg ser vi på hvordan vi kan motta leveransestatus på utsendte meldinger,
 samt gjennomgang av flere andre nyttige funksjoner som plattformen tilbyr. De fleste av prinsippene er demonstrert med
-kodeeksempler.
+[kodeeksempler](CodeExamples.html).
 
 Velg først hvilket grensesnitt du ønsker å benytte ved å gå gjennom oppsummeringen under. Du kan deretter klikke deg inn
 på det aktuelle grensesnittet for å få mer utfyllende informasjon.
@@ -72,19 +72,23 @@ Leveransestatus kan enten oppdrives som push eller pull. Push vil si at statusra
 callback, e-post, etc.) når status har endret seg, mens pull vil si at vi må kalle et endepunkt for å motta gjeldende
 status.
 
+[Les mer](Guide-DeliveryReports.html)
+
 # Annet nyttig
 
 ## Sjekke credits
 
 Man kan kalle et endepunkt for å returnere antall credits tilgjengelig på konto. Dette gjelder imidlertid kun dersom
-konto er satt opp med forhåndsbetalte credits. Sjekk kodeeksempel for Web Service eller for XML over HTTP for mer
-informasjon om hvordan dette fungerer.
+konto er satt opp med forhåndsbetalte credits. 
+Sjekk kodeeksempel for [Web Service](Guide-WS.html) eller for [XML over HTTP](Guide-XmlHttp.html) 
+for mer informasjon om hvordan dette fungerer.
 
 ## Slette meldinger i køen
 
 Dersom man har sendt instrukser om at en melding skal sendes frem i tid, men deretter ønsker å avbryte, kan man kalle et
-endepunkt med meldingens ID (som man mottok ved sending) for å kansellere utsendelsen. Sjekk kodeeksempel for Web
-Service eller for XML over HTTP for mer informasjon om hvordan dette fungerer.
+endepunkt med meldingens ID (som man mottok ved sending) for å kansellere utsendelsen.
+Sjekk kodeeksempel for [Web Service](Guide-WS.html) eller for [XML over HTTP](Guide-XmlHttp.html)
+for mer informasjon om hvordan dette fungerer.
 
 # Offisiell dokumentasjon
 
