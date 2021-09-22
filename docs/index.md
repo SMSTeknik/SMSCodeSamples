@@ -1,5 +1,11 @@
 ## SMS Teknik Developer Documentation
 
+
+# Kodeeksempler
+
+Her finner du kodeeksempler for .Net:  
+[Kodeeksempler](CodeExamples.html)
+
 # Implementasjonsveiledning
 
 Denne veiledningen tar for seg utvalgte områder for integrasjon mot SMS Teknik. Det henvises til offisiell dokumentasjon
