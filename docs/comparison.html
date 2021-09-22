@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sammenligning</title>
+</head>
+<body>
+<h5>Sammenligning</h5>
+
+<table class="table table-sm">
+  <thead>
+  <tr>
+    <th scope="col">Egenskap</th>
+    <th scope="col">Http Get Wrapper</th>
+    <th scope="col">Web Service <strong><sup>(1)</sup></strong></th>
+    <th scope="col">XML over HTTP</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Credentials</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Lange SMS</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Angi avsender</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Flere mottakere</td>
+    <td>&nbsp;</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Type melding (vCard, etc)</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Blinkende melding</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Styrt utløpsdato (TTL)</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Planlagt utsendelse</td>
+    <td>&nbsp;</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Komprimert tekst</td>
+    <td>&nbsp;</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Push leveranserapport</td>
+    <td>&nbsp;</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Reply modul</td>
+    <td>&nbsp;</td>
+    <td>✓</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>Maks antall mottakere <sup>(2)</sup></td>
+    <td>1</td>
+    <td>2.000</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>Implementasjonstid</td>
+    <td>Liten</td>
+    <td>Medium</td>
+    <td>Medium</td>
+  </tr>
+  </tbody>
+</table>
+<p><small><strong>(1)</strong> I sammenligningen er det tatt utgangspunkt i metoden <i>SendSMSMulti</i>, som er den mest avanserte metoden i Web Service.</small><br>
+  <small><strong>(2)</strong> Maksimum antall mottakere er basert på anbefaling i dokumentasjonen, men ikke nødvendigvis en sperre.</small>
+</body>
+</html>

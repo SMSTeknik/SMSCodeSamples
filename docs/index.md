@@ -1,37 +1,52 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/narve/SMSCodeSamples/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+# Implementasjonsveiledning
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Denne veiledningen tar for seg utvalgte områder for integrasjon mot SMS Teknik. Det henvises til offisiell dokumentasjon
+for mer utfyllende informasjon.
 
-### Markdown
+SMS Teknik tilbyr flere metoder for utsendelse av SMS basert på ulike teknologier og metodikker. I denne veiledningen
+går vi innom de tre vanligste metodene. I tillegg ser vi på hvordan vi kan motta leveransestatus på utsendte meldinger,
+samt gjennomgang av flere andre nyttige funksjoner som plattformen tilbyr. De fleste av prinsippene er demonstrert med
+kodeeksempler.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Velg først hvilket grensesnitt du ønsker å benytte ved å gå gjennom oppsummeringen under. Du kan deretter klikke deg inn
+på det aktuelle grensesnittet for å få mer utfyllende informasjon.
 
-```markdown
-Syntax highlighted code block
+# Prerequisites
 
-# Header 1
-## Header 2
-### Header 3
+Før du begynner må du få utdelt id, brukernavn og passord av SMS Teknik. Da vil da også få tilgang til offisiell
+dokumentasjon.
 
-- Bulleted
-- List
+I tillegg til brukernavn og passord vil du også få utlevert en token til bruk ved Basic Authentication. Vi anbefaler
+alltid at Basic Authentication i header benyttes fremfor å legge brukernavn og passord som parametere i URL.
 
-1. Numbered
-2. List
+# Grensesnitt for utsendelse av SMS
 
-**Bold** and _Italic_ and `Code` text
+Det finnes flere ulike grensesnitt (API-er) for å sende ut SMS. Vurder hvilket grensesnitt som passer best for ditt
+prosjekt, og klikk deg videre inn for mer utfyllende informasjon.
 
-[Link](url) and ![Image](src)
-```
+## .Net Web Service (SOAP/XML)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Klassisk SOAP/XML Web Service for utsendelse av SMS. Inneholder metode for både enkel og avansert utsendelse av SMS.
 
-### Jekyll Themes
+Web Service kan benyttes som klassisk web service (med proxy), eller ved å utføre HTTP POST mot et endepunkt.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/narve/SMSCodeSamples/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## XML over HTTP
 
-### Support or Contact
+Dette prinsippet baserer seg på at man genererer et XML objekt som man poster (HTTP POST) til et endepunkt (URL). XML
+objektet inneholder alle parameterne for å sende SMS, som f.eks. mottakere, avsendere, etc. Dette er en enkel teknikk
+som alle plattformer kan benytte.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## HTTP GET wrapper (parametere i URL)
+
+## Andre grensesnitt
+
+I tillegg tilbys også følgende mindre aktuelle grensesnitt. Disse grensesnittene er ikke omhandlet ytterligere i denne
+veiledningen, men du kan lese mer om den i offisiell dokumentasjon og på Wikipedia.
+
+- Short Message Peer-to-Peer (SMPP) - Wikipedia
+- Universal Computer Protocol (UCP) - Wikipedia
+- Computer Interface to Message Distribution (CIMD) - Wikipedia
+
+See [comparison.html] for sammenligning av de ulike grensesnittene. 
