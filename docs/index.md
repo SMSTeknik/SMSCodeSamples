@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## SMS Teknik Developer Documentation
 
 # Implementasjonsveiledning
 
@@ -49,4 +49,36 @@ veiledningen, men du kan lese mer om den i offisiell dokumentasjon og på Wikipe
 - Universal Computer Protocol (UCP) - Wikipedia
 - Computer Interface to Message Distribution (CIMD) - Wikipedia
 
-See [comparison.html] for sammenligning av de ulike grensesnittene. 
+See [comparison.html] for sammenligning av de ulike grensesnittene.
+
+# Leveranserapporter
+
+Plattformen tilbyr også mulighet for å få leveranserapporter, det vil si status om meldingen fra den blir sendt frem til
+den når mottaker eller av ulike årsaker har feilet.
+
+Leveransestatus kan enten oppdrives som push eller pull. Push vil si at statusrapporter blir sendt til oss (som http
+callback, e-post, etc.) når status har endret seg, mens pull vil si at vi må kalle et endepunkt for å motta gjeldende
+status.
+
+# Annet nyttig
+
+## Sjekke credits
+
+Man kan kalle et endepunkt for å returnere antall credits tilgjengelig på konto. Dette gjelder imidlertid kun dersom
+konto er satt opp med forhåndsbetalte credits. Sjekk kodeeksempel for Web Service eller for XML over HTTP for mer
+informasjon om hvordan dette fungerer.
+
+## Slette meldinger i køen
+
+Dersom man har sendt instrukser om at en melding skal sendes frem i tid, men deretter ønsker å avbryte, kan man kalle et
+endepunkt med meldingens ID (som man mottok ved sending) for å kansellere utsendelsen. Sjekk kodeeksempel for Web
+Service eller for XML over HTTP for mer informasjon om hvordan dette fungerer.
+
+
+# Offisiell dokumentasjon
+
+
+Offisiell dokumentasjon
+
+Logg inn på medlemsområdet for å laste ned offisiell dokumentasjon:
+https://www.smsteknik.se/member/login/
