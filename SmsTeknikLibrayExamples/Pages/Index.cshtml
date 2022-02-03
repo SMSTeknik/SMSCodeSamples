@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Examples for SmsTeknikLibrary";
+}
+
+
+<div>
+    <h1>Web Service Examples</h1>
+
+
+    <p>Nuget: nuget Install-Package SMSTeknikClient</p>
+    <p>Github: <a target="_blank" href="https://github.com/SMSTeknik/SMSTeknikClient">https://github.com/SMSTeknik/SMSTeknikClient</a></p>
+    
+
+    <ul>
+        <li><a asp-page="/SendSingleMessage">Send single message</a></li>
+        <li><a asp-page="/CheckCredits">Check Account Credits</a></li>
+    </ul>
+</div>

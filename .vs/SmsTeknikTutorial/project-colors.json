@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "12eabaff-0a00-4bba-a790-5a4a3981e2d9": {
+      "ProjectGuid": "12eabaff-0a00-4bba-a790-5a4a3981e2d9",
+      "DisplayName": "SmsTeknikXmlHttpExamples",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "f6b60918-685c-4490-8b7c-4ef7c3cba692": {
+      "ProjectGuid": "f6b60918-685c-4490-8b7c-4ef7c3cba692",
+      "DisplayName": "SmsTeknikHttpWrapperExamples",
+      "ColorIndex": 1
+    },
+    "19cff9cc-72e9-4510-996b-8b7ccd53d3d7": {
+      "ProjectGuid": "19cff9cc-72e9-4510-996b-8b7ccd53d3d7",
+      "DisplayName": "SmsTeknikLibrary",
+      "ColorIndex": 2
+    },
+    "85feb066-a430-46df-af64-4d1af2bec98e": {
+      "ProjectGuid": "85feb066-a430-46df-af64-4d1af2bec98e",
+      "DisplayName": "SmsTeknikLibrayExamples",
+      "ColorIndex": 3
+    },
+    "56977fb1-a752-44d1-a036-198ea8e1294d": {
+      "ProjectGuid": "56977fb1-a752-44d1-a036-198ea8e1294d",
+      "DisplayName": "SmsTeknikWebServiceExamples",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

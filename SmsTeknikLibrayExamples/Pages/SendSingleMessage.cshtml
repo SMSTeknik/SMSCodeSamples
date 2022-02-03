@@ -1,0 +1,49 @@
+﻿@page
+@model SmsTeknikLibrayExamples.Pages.SendSingleMessageModel
+@{
+    ViewData["Title"] = "Send Singel Message";
+}
+
+
+<div>
+    <h1>Send single message</h1>
+
+    <p>Send a message to a single recipient.</p>
+    <form method="post">
+
+
+
+        <div class="form-group">
+            <label for="txtFrom">From</label>
+            <input type="text" class="form-control" placeholder="Sender, eg Test or phone number" name="txtFrom" value="" />
+            <small class="form-text text-muted">Alphanumeric name or phone number (remember country prefix, eg. +4790000000.</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="txtTo">To</label>
+            <input type="text" class="form-control" placeholder="Phone number" name="txtTo" value="" />
+            <small class="form-text text-muted">Phone number starting with country prefix, eg. +4790000000</small>
+        </div>
+
+        <div class="form-group">
+            <label for="txtBody">Body</label>
+            <textarea class="form-control" name="txtBody" rows="3"></textarea>
+            <small class="form-text text-muted">The message body.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+     
+    </form>
+
+</div>

@@ -31,7 +31,7 @@ namespace SmsTeknikXmlHttpExamples.Pages
             using (var client = new System.Net.WebClient())
             {
                 // It is recommended to use Basic Auth, but it is also possible to add credentials to URL.
-                client.Headers["Authorization"] = "Basic c21zOEEwOURDOjZjYzFkYWQ=";
+                client.Headers["Authorization"] = "Basic [your token]";
 
                 // Convert data to byte array. The ToString()-method serializes the object into an XML string.
                 var data = System.Text.Encoding.UTF8.GetBytes(request.ToString());

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomas\\Source\\Repos\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
+      "projectUniqueName": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
       "projectName": "SmsTeknikXmlHttpExamples",
-      "projectPath": "C:\\Users\\tomas\\Source\\Repos\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
+      "projectPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
       "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomas\\Source\\Repos\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\obj\\",
+      "outputPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

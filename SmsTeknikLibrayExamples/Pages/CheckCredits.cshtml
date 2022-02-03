@@ -1,0 +1,29 @@
+﻿@page
+@model SmsTeknikLibrayExamples.Pages.CheckCreditsModel
+@{
+    ViewData["Title"] = "Check credits";
+}
+
+<div>
+    <h1>Check credits on account</h1>
+
+    <p>Press Submit to check the account's credits.</p>
+    <form method="post">
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <hr />
+
+
+        @if(!string.IsNullOrEmpty(Model.Message))
+        {
+            <div style="margin-top: 15px;" class="alert alert-secondary">
+                <h5 class="alert-heading">Message:</h5>
+                @Model.Message
+            </div>
+        }
+     
+    </form>
+
+</div>
