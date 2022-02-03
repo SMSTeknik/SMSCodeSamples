@@ -15,7 +15,6 @@ C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\bin\Debug\net5.0\System.ServiceModel.Http.dll
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\bin\Debug\net5.0\System.ServiceModel.Primitives.dll
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\bin\Debug\net5.0\System.ServiceModel.dll
-C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\obj\Debug\net5.0\SmsTeknikWebServiceExamples.csproj.AssemblyReference.cache
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\obj\Debug\net5.0\SmsTeknikWebServiceExamples.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\obj\Debug\net5.0\SmsTeknikWebServiceExamples.AssemblyInfoInputs.cache
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikWebServiceExamples\obj\Debug\net5.0\SmsTeknikWebServiceExamples.AssemblyInfo.cs

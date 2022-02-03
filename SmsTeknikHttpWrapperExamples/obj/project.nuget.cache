@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bql0dENGYVyxhHFp/318izI8LcQSn71oomuA1XjzLZ8zBq/t6IURfZldYi0u9H+nsNjKS/0zhGRvmUBdtVCPrA==",
+  "dgSpecHash": "zlyIdv4NgPe/G+s021x/xzwM/wp9/GX9GjfjTxffCJfsEv2TlI+sv47YpL6oWcrUAZvMlWP4EB0uIdQRXdiSDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj",
+  "projectFilePath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

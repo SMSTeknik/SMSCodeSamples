@@ -1,17 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SmsTeknikHttpWrapperExamples",
-    "\\SmsTeknikHttpWrapperExamples\\Pages",
     "\\SmsTeknikLibrayExamples",
     "\\SmsTeknikLibrayExamples\\Pages",
-    "\\SmsTeknikLibrayExamples\\wwwroot",
-    "\\SmsTeknikLibrayExamples\\wwwroot\\js",
+    "\\SmsTeknikLibrayExamples\\Pages\\Shared",
     "\\SmsTeknikWebServiceExamples",
-    "\\SmsTeknikWebServiceExamples\\Pages",
-    "\\SmsTeknikXmlHttpExamples",
-    "\\SmsTeknikXmlHttpExamples\\Pages"
+    "\\SmsTeknikWebServiceExamples\\Pages"
   ],
-  "SelectedNode": "\\SmsTeknikLibrayExamples\\Pages\\CheckCredits.cshtml.cs",
+  "SelectedNode": "\\SmsTeknikLibrayExamples\\SmsTeknikLibraryExamples.csproj",
   "PreviewInSolutionExplorer": false
 }

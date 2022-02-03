@@ -9,7 +9,6 @@ C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\bi
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\bin\Debug\net5.0\SmsTeknikXmlHttpExamples.pdb
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\bin\Debug\net5.0\SmsTeknikXmlHttpExamples.Views.dll
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\bin\Debug\net5.0\SmsTeknikXmlHttpExamples.Views.pdb
-C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\obj\Debug\net5.0\SmsTeknikXmlHttpExamples.csproj.AssemblyReference.cache
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\obj\Debug\net5.0\SmsTeknikXmlHttpExamples.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\obj\Debug\net5.0\SmsTeknikXmlHttpExamples.AssemblyInfoInputs.cache
 C:\Users\tomas\Source\Repos\SMSTeknik\SMSCodeSamples\SmsTeknikXmlHttpExamples\obj\Debug\net5.0\SmsTeknikXmlHttpExamples.AssemblyInfo.cs

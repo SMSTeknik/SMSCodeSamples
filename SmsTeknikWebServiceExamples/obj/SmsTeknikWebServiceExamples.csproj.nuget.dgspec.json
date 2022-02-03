@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj": {}
+    "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj": {
+    "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj",
+        "projectUniqueName": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj",
         "projectName": "SmsTeknikWebServiceExamples",
-        "projectPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj",
+        "projectPath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj",
         "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\obj\\",
+        "outputPath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",

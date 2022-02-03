@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj": {}
+    "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj": {
+    "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj",
+        "projectUniqueName": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj",
         "projectName": "SmsTeknikHttpWrapperExamples",
-        "projectPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj",
+        "projectPath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\SmsTeknikHttpWrapperExamples.csproj",
         "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\obj\\",
+        "outputPath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikHttpWrapperExamples\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",

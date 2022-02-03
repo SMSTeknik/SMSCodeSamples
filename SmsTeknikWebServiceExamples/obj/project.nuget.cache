@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nxDBtW8noFeB7TfsUk6rNyvbGnTRizpTQI+yPnhVCXXd3hKzY0GvqaZRtVRT4xsJVv8gIEXQQAwFksP4HHI36w==",
+  "dgSpecHash": "SOFNQcV2qyVIcH6I1xmIFhwr5+k3cy7CJj3H1KTulRooJVNZ/mC/NFSBYUo6fZWLFlvRvkInP0Q0ba1yLkwJvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj",
+  "projectFilePath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikWebServiceExamples\\SmsTeknikWebServiceExamples.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tomas\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\tomas\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

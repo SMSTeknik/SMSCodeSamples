@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj": {}
+    "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj": {
+    "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
+        "projectUniqueName": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
         "projectName": "SmsTeknikXmlHttpExamples",
-        "projectPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
+        "projectPath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\SmsTeknikXmlHttpExamples.csproj",
         "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomas\\Source\\Repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\obj\\",
+        "outputPath": "C:\\Users\\tomas\\source\\repos\\SMSTeknik\\SMSCodeSamples\\SmsTeknikXmlHttpExamples\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",

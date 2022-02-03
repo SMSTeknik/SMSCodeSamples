@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsTeknikHttpWrapperExample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsTeknikXmlHttpExamples", "SmsTeknikXmlHttpExamples\SmsTeknikXmlHttpExamples.csproj", "{12EABAFF-0A00-4BBA-A790-5A4A3981E2D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsTeknikLibrayExamples", "SmsTeknikLibrayExamples\SmsTeknikLibrayExamples.csproj", "{85FEB066-A430-46DF-AF64-4D1AF2BEC98E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmsTeknikLibraryExamples", "SmsTeknikLibraryExamples\SmsTeknikLibraryExamples.csproj", "{85FEB066-A430-46DF-AF64-4D1AF2BEC98E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SmsTeknikLibrayExamples.Pages
+namespace SmsTeknikLibraryExamples.Pages
 {
     public class IndexModel : PageModel
     {

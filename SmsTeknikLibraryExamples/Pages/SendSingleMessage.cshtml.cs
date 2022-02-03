@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Web;
 
-namespace SmsTeknikLibrayExamples.Pages
+namespace SmsTeknikLibraryExamples.Pages
 {
     public class SendSingleMessageModel : PageModel
     {
